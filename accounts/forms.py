@@ -37,7 +37,9 @@ class UserRegisterForm(forms.ModelForm):
             raise ValidationError('passwords are not match')
 
 
-class UserLoginForm(forms.ModelForm):
-    class Meta:
-        model = User
-        fields = ('username', 'password')
+class UserLoginForm(forms.Form):
+    username = forms.CharField(max_length=40)
+    password = forms.CharField(max_length=50, widget=forms.PasswordInput)
+    # class Meta:
+    #     model = User
+    #     fields = ('username', 'password')
